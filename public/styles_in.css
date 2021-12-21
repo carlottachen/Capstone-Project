@@ -1,5 +1,5 @@
 .group-user-items{
-    padding: 2em 4em 2em 4em;
+    padding: 1em 4em 1em 4em;
     margin: 0;
     position: relative;
     color: white;
@@ -8,8 +8,8 @@
 }
 
 #user-items{
-    width: 15%;
-    padding: 15px;
+    width: 20%;
+    padding: 0 20px 20px 0;
 }
 
 #display-username{
@@ -52,7 +52,7 @@
     background-color: white;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 200%;
+    width: 90%;
 }
 
 #post-question:hover{

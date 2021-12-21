@@ -23,14 +23,19 @@
 			<form id="signup-form">
 				<h1>Sign Up</h1>
 
-				<input type="text" class="form-fields" id="email-field" placeholder="E-mail: " />
-				<input type="text" class="form-fields" id="username-field" placeholder="Username: " />
-				<input type="password" class="form-fields" id="password-field" placeholder="Password: " />
+				<input type="text" class="form-fields" id="signup-email-field" placeholder="E-mail: " />
+				<input type="text" class="form-fields" id="signup-username-field" placeholder="Username: " />
+				<input type="password" class="form-fields" id="signup-password-field" placeholder="Password: " />
+				<input type="password" class="form-fields" id="confirm-password-field"
+					placeholder="Confirm Password: " />
 
 				<a class="switch-page" href="login.html">Login</a>
-				<button class="submit-form">Sign Up</button>
+				<button class="submit-form" id="submit-signup">Register</button>
 			</form>
+			<p id="message"></p>
 		</section>
+
+		<script src="signup.js"></script>
 	</main>
 
 </body>
