@@ -26,8 +26,38 @@
 				<h3 id="display-username">Username</h3>
 				<a href="comPosts.html"><button id="switch-view">View all posts</button></a>
 			</div>
-			<a id="post-section" href="#"><button id="post-question">POST A QUESTION</button></a>
+			<p id="post-section"><button class="post-question">POST A
+					QUESTION</button></p>
 		</section>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p id="modal-title">POST YOUR QUESTION</p>
+				<div id="modal-body">
+					<form id="question-form">
+						<p>Header of Post: </p>
+						<input id="option-input" type="text" />
+						<p>What would you like to ask the community</p>
+						<textarea id="option-input" rows='5'></textarea>
+						<div id="two-options">
+							<div id="box1">
+								<p>Button Option 1</p>
+								<input type="text" id="option-input" />
+							</div>
+							<div id="box2">
+								<p>Button Option 1</p>
+								<input type="text" id="option-input" />
+							</div>
+						</div>
+						<button class="submit-question">Post Question!</button>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<section class="post-body">
 			<div class="list-posts">
@@ -39,6 +69,7 @@
 				<div id="a-post">Some text</div>
 			</div>
 		</section>
+		<script src="modal.js"></script>
 	</main>
 </body>
 

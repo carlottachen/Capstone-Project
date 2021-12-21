@@ -3,8 +3,6 @@ const loginSubmit = document.querySelector('#login-form');
 const baseURL = `http://localhost:4004/api`
 
 function loginUser(event) {
-    alert('click');
-
     let username = document.querySelector('#username-field');
     let password = document.querySelector('#password-field');
 

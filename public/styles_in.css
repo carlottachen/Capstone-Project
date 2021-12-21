@@ -8,8 +8,7 @@
 }
 
 #user-items{
-    width: 20%;
-    padding: 0 20px 20px 0;
+    padding: 20px;
 }
 
 #display-username{
@@ -43,7 +42,7 @@
     align-items: center;
 }
 
-#post-question{
+.post-question{
     border-style: solid;
     border-width: thin;
     border-radius: 10px;
@@ -55,7 +54,7 @@
     width: 90%;
 }
 
-#post-question:hover{
+.post-question:hover{
     cursor: pointer;
     color: white;
     background-color: #9e788f;
