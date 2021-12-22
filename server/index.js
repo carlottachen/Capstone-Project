@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
-/*
+
 app.get('/', function (request, response) {
-    res.sendFile(path.join(__dirname, '../public/signup.html'));
+    response.sendFile(path.join(__dirname, '../public/login.html'));
 })
-*/
+
 
 app.post(`/api/login`, login);
 app.post(`/api/register`, register);
