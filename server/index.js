@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 //const { SERVER_PORT } = process.env;
-
 
 const {
     login,
@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
-
 app.get('/', function (request, response) {
+    console.log('hit');
     response.sendFile(path.join(__dirname, '../public/login.html'));
 })
 
