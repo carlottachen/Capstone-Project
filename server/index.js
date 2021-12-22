@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const { SERVER_PORT } = process.env;
 
+
 const {
     login,
     register
@@ -11,6 +12,13 @@ const {
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public'));
+
+/*
+app.get('/', function (request, response) {
+    res.sendFile(path.join(__dirname, '../public/signup.html'));
+})
+*/
 
 app.post(`/api/login`, login);
 app.post(`/api/register`, register);
