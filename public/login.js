@@ -1,6 +1,6 @@
 const loginSubmit = document.querySelector('#login-form');
 
-const baseURL = `http://localhost:4004/api`
+const baseURL = "http://localhost:4004";
 
 function loginUser(event) {
     let username = document.querySelector('#username-field');

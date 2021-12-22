@@ -1,7 +1,7 @@
 const signupForm = document.querySelector('#signup-form');
 const message = document.querySelector('#message');
 
-const baseURL = `http://localhost:4004/api`
+const baseURL = "http://localhost:4004";
 
 function registerNewUser(event) {
     event.preventDefault();
