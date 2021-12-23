@@ -26,7 +26,7 @@ module.exports = {
             user_id SERIAL PRIMARY KEY,
             user_email VARCHAR(50),
             username VARCHAR(50),
-            user_password VARCHAR(50)
+            user_password VARCHAR(500)
             );
             
             CREATE TABLE posts(
@@ -48,9 +48,9 @@ module.exports = {
                     );
 
                     INSERT INTO users(user_email, username, user_password)
-                    VALUES(carlotta@gmail.com, carlottachen, password1),
+                    VALUES('carlotta@gmail.com', 'carlottachen', 'password1'),
                     ('cchen@gmail.com', 'cchen123', 'password2'),
-                    ('hello@yahoo.com, 'helloWorld', 'password3');
+                    ('hello@yahoo.com', 'helloWorld', 'password3');
 
                     INSERT INTO posts(user_id, post_title, post_content, date_posted)
                     VALUES(1, 'Test post', 'This is some content', CURRENT_DATE);
@@ -83,7 +83,7 @@ module.exports = {
             user_email,
             username,
             user_password
-        )VALUES('${email}, ${username}, ${passwordHash})
+        )VALUES('${email}', '${username}', '${passwordHash}')
         `).then(dbRes => response.status(200).send(dbRes[0]))
             .catch(error => console.log(error));
     }
