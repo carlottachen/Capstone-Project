@@ -79,17 +79,11 @@ module.exports = {
         let passwordHash = bcrypt.hashSync(password, salt);
 
         sequelize.query(`
-        CREATE TABLE users(
-            user_id SERIAL PRIMARY KEY,
-            user_email VARCHAR(50),
-            username VARCHAR(50),
-            user_password VARCHAR(50)
-            );
-            
-            INSERT INTO users(user_email, username, user_password)
-                    VALUES(carlotta@gmail.com, carlottachen, password1),
-                    ('cchen@gmail.com', 'cchen123', 'password2'),
-                    ('hello@yahoo.com, 'helloWorld', 'password3');
+        INSERT INTO users(
+            user_email,
+            username,
+            user_password
+        )VALUES('${email}, ${username}, ${passwordHash})
         `).then(dbRes => response.status(200).send(dbRes[0]))
             .catch(error => console.log(error));
     }
