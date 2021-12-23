@@ -21,7 +21,7 @@ function loginUser(event) {
 }
 
 function login(body) {
-    axios.post(`/login`, body).then(response => {
+    axios.post(`https://cc-capstone.herokuapp.com/login`, body).then(response => {
         alert('Signed in!');
     }).catch(error => {
         console.log(error);
