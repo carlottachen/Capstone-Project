@@ -34,7 +34,7 @@ function registerNewUser(event) {
 }
 
 function checkExisting(body) {
-    const { email, username, password } = request.body;
+    const { email } = body.email;
 
     axios.get(`/searchUsers`).then(response => {
         for (let i = 0; i < response.data.length; i++) {
