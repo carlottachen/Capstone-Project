@@ -1,7 +1,5 @@
 const loginSubmit = document.querySelector('#login-form');
 
-const baseURL = "http://localhost:4004";
-
 function loginUser(event) {
     let username = document.querySelector('#username-field');
     let password = document.querySelector('#password-field');
@@ -23,7 +21,7 @@ function loginUser(event) {
 }
 
 function login(body) {
-    axios.post(`${baseURL}/login`, body).then(response => {
+    axios.post(`/login`, body).then(response => {
         alert('Signed in!');
     }).catch(error => {
         console.log(error);

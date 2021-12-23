@@ -1,8 +1,6 @@
 const signupForm = document.querySelector('#signup-form');
 const message = document.querySelector('#message');
 
-const baseURL = "http://localhost:4004";
-
 function registerNewUser(event) {
     event.preventDefault();
     let email = document.querySelector('#signup-email-field')
@@ -36,7 +34,7 @@ function registerNewUser(event) {
 }
 
 function register(body) {
-    axios.post(`${baseURL}/register`, body).then(response => {
+    axios.post(`/register`, body).then(response => {
         message.innerHTML = 'Successfully registered new user';
     }).catch(error => {
         console.log(error);

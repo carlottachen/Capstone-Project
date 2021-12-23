@@ -19,8 +19,8 @@ app.get('/', function (request, response) {
 })
 
 app.post('/seed', seed);
-app.post(`/api/login`, login);
-app.post(`/api/register`, register);
+app.post(`/login`, login);
+app.post(`/register`, register);
 
 const port = process.env.PORT || 4004;
 app.listen(port, () => console.log(`Welcome to PORT ${port}`));
