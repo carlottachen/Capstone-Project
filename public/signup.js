@@ -10,6 +10,12 @@ function registerNewUser(event) {
     let password = document.querySelector('#signup-password-field');
     let confirmPass = document.querySelector('#confirm-password-field');
 
+    if (email.value < 1 || username.value < 1 ||
+        password.value < 1 || confirmPass < 1) {
+        alert('All fields required to register');
+        return;
+    }
+
     if (password.value != confirmPass.value) {
         alert('Passwords must match!');
         return;

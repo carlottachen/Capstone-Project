@@ -6,6 +6,11 @@ function loginUser(event) {
     let username = document.querySelector('#username-field');
     let password = document.querySelector('#password-field');
 
+    if (username.value < 1 || password.value < 1) {
+        alert('Username and Password is required to login');
+        return;
+    }
+
     let loginObj = {
         username: username.value,
         password: password.value
