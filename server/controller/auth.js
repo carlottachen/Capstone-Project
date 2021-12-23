@@ -18,9 +18,9 @@ const bcrypt = require('bcryptjs');
 module.exports = {
     seed: (request, response) => {
         sequelize.query(`
-        DROP TABLE IF EXISTS users;
-        DROP TABLE IF EXISTS posts;
         DROP TABLE IF EXISTS results;
+        DROP TABLE IF EXISTS posts;
+        DROP TABLE IF EXISTS users;
         
         CREATE TABLE users(
             user_id SERIAL PRIMARY KEY,
