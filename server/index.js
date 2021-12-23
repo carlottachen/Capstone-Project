@@ -7,7 +7,8 @@ const path = require('path');
 const {
     seed,
     login,
-    register
+    register,
+    searchUsers
 } = require('./controller/auth.js');
 
 app.use(express.json());
@@ -21,6 +22,7 @@ app.get('/', function (request, response) {
 app.post('/seed', seed);
 app.post(`/login`, login);
 app.post(`/register`, register);
+app.get(`/searchUsers`, searchUsers);
 
 const port = process.env.PORT || 4004;
 app.listen(port, () => console.log(`Welcome to PORT ${port}`));

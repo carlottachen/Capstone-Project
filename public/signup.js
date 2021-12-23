@@ -25,12 +25,26 @@ function registerNewUser(event) {
         password: password.value
     }
 
-    register(newUserObj);
+    checkExisting(newUserObj);
 
     email.value = '';
     username.value = '';
     password.value = '';
     confirmPass.value = '';
+}
+
+function checkExisting(body) {
+    const { email, username, password } = request.body;
+
+    axios.get(`/searchUsers`).then(response => {
+        for (let i = 0; i < response.data.length; i++) {
+            if (email === response.data[i]['user_email'])
+                console.log('found');
+        }
+    }).catch(error => {
+        console.log(error);
+        alert('Uh oh. Your request did not work');
+    })
 }
 
 function register(body) {
