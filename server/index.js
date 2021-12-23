@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.static('public'));
 
 app.get('/', function (request, response) {
-    response.sendFile(path.join(__dirname, '../public/login.html'));
+    response.sendFile(path.join(__dirname, '../public/signup.html'));
 })
 
 app.post('/seed', seed);
