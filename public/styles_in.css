@@ -32,6 +32,7 @@
 #switch-view:hover{
     background-color: #7284a8;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 #post-section{
@@ -58,6 +59,7 @@
     cursor: pointer;
     color: white;
     background-color: #9e788f;
+    transform: scale(1.1);
 }
 
 .post-body{

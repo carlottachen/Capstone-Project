@@ -106,6 +106,7 @@ form{
 .submit-form:hover{
     background-color: #7284a8;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .switch-page{
