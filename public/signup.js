@@ -34,7 +34,7 @@ function registerNewUser(event) {
 }
 
 function register(body) {
-    axios.post(`https://cc-capstone.herokuapp.com/register`, body).then(response => {
+    axios.post(`/register`, body).then(response => {
         message.innerHTML = 'Successfully registered new user';
     }).catch(error => {
         console.log(error);
