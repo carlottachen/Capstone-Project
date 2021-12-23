@@ -35,7 +35,8 @@ function registerNewUser(event) {
 
 function register(body) {
     axios.post(`/register`, body).then(response => {
-        message.innerHTML = 'Successfully registered new user';
+        alert('Successfully registered! Please login :)');
+        window.location.href = "/login.html";
     }).catch(error => {
         console.log(error);
         alert('Uh oh. Your request did not work');

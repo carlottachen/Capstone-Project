@@ -44,6 +44,10 @@ header{
      color: #7284a8;
  }
 
+ #logo-img{
+     height: 70px;
+ }
+
 a{
     text-decoration: none;
 }
