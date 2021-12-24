@@ -63,8 +63,12 @@ module.exports = {
         }).catch(error => console.log('ERROR seeding DB', error));
     },
 
+    //
     login: (request, response) => {
         const { username, password } = request.body;
+
+        let salt = bcrypt.genSaltSync(5);
+        let passwordHash = bcrypt.hashSync(password, salt);
 
         sequelize.query()
             .then()
@@ -72,6 +76,7 @@ module.exports = {
 
     },
 
+    //Create a new user
     register: (request, response) => {
         const { email, username, password } = request.body;
 
@@ -88,8 +93,9 @@ module.exports = {
             .catch(error => console.log(error));
     },
 
+    //returns all existing user info to check
+    //for existing username/emails in the front end
     searchUsers: (request, response) => {
-
         sequelize.query(`
         SELECT * FROM users;
         `).then(dbRes => response.status(200).send(dbRes[0]))

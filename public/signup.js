@@ -20,12 +20,11 @@ function registerNewUser(event) {
     }
 
     let newUserObj = {
-        email: email.value,
-        username: username.value,
+        email: email.value.toLowerCase(),
+        username: username.value.toLowerCase(),
         password: password.value
     }
-
-    checkExisting(newUserObj);
+    checkExists(newUserObj);
 
     email.value = '';
     username.value = '';
@@ -33,19 +32,39 @@ function registerNewUser(event) {
     confirmPass.value = '';
 }
 
-function checkExisting(body) {
-    const { email } = body.email;
-
-    axios.get(`/searchUsers`).then(response => {
+function checkExists(body) {
+    const { email, username, password } = body;
+    axios.get(`http://localhost:4004/searchUsers`).then(response => {
         for (let i = 0; i < response.data.length; i++) {
-            if (email === response.data[i]['user_email'])
-                console.log('found');
+            if (email === response.data[i].user_email) {
+                alert('There is an account registered to this email');
+                return;
+            }
+            else if (username === response.data[i].username) {
+                alert('This username is taken');
+                return;
+            }
+            else {
+                register(body);
+                return;
+            }
         }
     }).catch(error => {
         console.log(error);
         alert('Uh oh. Your request did not work');
     })
 }
+
+/*response.data.forEach(user => {
+if (email === user['user_email']) {
+    alert('There is an account registered to this email');
+    break;
+}
+else if (username === user['username']) {
+    alert('This username is taken');
+    break;
+};
+})*/
 
 function register(body) {
     axios.post(`/register`, body).then(response => {
