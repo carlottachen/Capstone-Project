@@ -40,11 +40,19 @@ function postMyData(postData) {
 function postMyCard(body) {
     const newPost = document.createElement('div');
     newPost.classList.add('a-post');
-    let percent_1 = (`${body.vote_count_1}` / (`${body.vote_count_1}` + `${body.vote_count_2}`)) * 100;
-    let percent_2 = (`${body.vote_count_2}` / (`${body.vote_count_1}` + `${body.vote_count_2}`)) * 100;
+    let v1 = parseInt(`${body.vote_count_1}`);
+    let v2 = parseInt(`${body.vote_count_2}`);
+
+    let percent_1 = Math.round((v1 / (v1 + v2)) * 100);
+    let percent_2 = Math.round((v2 / (v1 + v2)) * 100);
     newPost.innerHTML =
         `<div id="a-post">
-        <h2>${body.post_title}</h2>
+        <h2>
+            <img src="trash-bin.png"
+            onclick="deleteThisPost(${body.post_id})" 
+            alt="delete post" id="delete-this" style="width:3vw;height:3vw">
+            ${body.post_title}             
+        </h2>
         <p>${body.post_content}<br><br>
         </p>
         <table>
@@ -61,8 +69,20 @@ function postMyCard(body) {
         <td>${percent_2} %</td>
         </tr>
         </table >
-        </div > `;
+        </div >`;
     listPosts.appendChild(newPost);
+}
+
+function deleteThisPost(id) {
+    axios.delete(`http://localhost:4004/deletePost/${id}`)
+        .then(response => {
+            alert('Post deleted');
+            location.reload();
+        })
+        .catch(error => {
+            console.log(error);
+            alert('Uh oh. Unable delete this post');
+        })
 }
 
 getMyPosts();

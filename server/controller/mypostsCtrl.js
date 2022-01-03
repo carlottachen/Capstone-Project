@@ -23,6 +23,16 @@ module.exports = {
         `)
             .then(dbRes => response.status(200).send(dbRes[0]))
             .catch(error => console.log(error));
+    },
+
+    deletePost: (request, response) => {
+        const { id } = request.params;
+        sequelize.query(`
+        DELETE FROM results WHERE post_id = ${id};
+        DELETE FROM posts WHERE post_id = ${id};
+        `)
+            .then(dbRes => response.status(200).send(dbRes[0]))
+            .catch(error => console.log(error));
     }
 
 }

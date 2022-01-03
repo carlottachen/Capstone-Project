@@ -47,23 +47,50 @@ function postCard(body) {
         <h2>${body.post_title}</h2>
         <p>${body.post_content}<br><br>
         <h4>Posted On ${body.date_posted} By ${body.username}</h4></p>
-        <form method="PUT" action="..." onsubmit="return checkForm(this);" id='${body.post_id}'>
+        <section>
             <div class="button_wrap">
-                <input class="select_button" id="pick_1" type="submit" name="b1" value="${body.button_1}">
-                <input class="select_button" id="pick_2" type="submit" name="b2" value="${body.button_2}">
+                <button class="select_button" id="${body.post_id}_a" 
+                onclick="updateOption1(${body.post_id})" 
+                type="submit">${body.button_1}</button>
+                
+                <button class="select_button" id="${body.post_id}_b" 
+                onclick="updateOption2(${body.post_id})" 
+                type="submit">${body.button_2}</button>
             </div>
-        </form>
+        </section>
         </div>`;
     listPosts.appendChild(newPost);
 }
 //CREATE POST REQUEST TO SEE IF THIS WORKS!!!
-//REFER TO BACK-END-2-DEMO in lectures
 
+function updateOption1(id) {
+    if (document.getElementById(`${id}_a`).disabled === false) {
+        axios.put(`http://localhost:4004/update_1/${id}`)
+            .then(response => {
+                console.log('updated 1');
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Uh oh. Unable to update option 1');
+            })
+    }
+    document.getElementById(`${id}_a`).disabled = true;
+    document.getElementById(`${id}_b`).disabled = true;
+}
 
-function checkForm(form) {
-    form.b1.disabled = true;
-    form.b2.disabled = true;
-    return true;
+function updateOption2(id) {
+    if (document.getElementById(`${id}_b`).disabled === false) {
+        axios.put(`http://localhost:4004/update_2/${id}`)
+            .then(response => {
+                console.log('updated 2');
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Uh oh. Unable to update option 2');
+            })
+    }
+    document.getElementById(`${id}_a`).disabled = true;
+    document.getElementById(`${id}_b`).disabled = true;
 }
 
 getAllPosts();

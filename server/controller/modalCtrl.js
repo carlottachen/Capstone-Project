@@ -46,10 +46,8 @@ module.exports = {
         INSERT INTO results(
             post_id, 
             vote_count_1,
-            vote_count_2,
-            percent_1,
-            percent_2
-        )VALUES(${post_id_data}, 0, 0, 0, 0)
+            vote_count_2
+        )VALUES(${post_id_data}, 0, 0)
         `).then(dbRes => response.status(200).send(dbRes[0]))
             .catch(error => console.log(error));
     }

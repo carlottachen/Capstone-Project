@@ -5,8 +5,13 @@ const span = document.getElementsByClassName("close")[0];
 
 const questionForm = document.querySelector("#question-form");
 
+window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; //loader hidden
+})
+
 function displayUser() {
-    document.getElementById("display-username").innerHTML = localStorage["username"];
+    document.getElementById("display-username").innerHTML = 'Hi, ' + localStorage["username"];
 }
 displayUser();
 

@@ -18,11 +18,14 @@ const {
 } = require('./controller/modalCtrl.js');
 
 const {
-    getAllPosts
+    getAllPosts,
+    updateB1,
+    updateB2
 } = require('./controller/comPostsCtrl.js');
 
 const {
-    getMyPosts
+    getMyPosts,
+    deletePost
 } = require('./controller/mypostsCtrl.js');
 
 app.use(express.json());
@@ -43,8 +46,11 @@ app.post(`/postQuestion`, postQuestion);
 app.post(`/postResult`, postResult);
 
 app.get(`/getAllPosts`, getAllPosts);
+app.put(`/update_1/:id`, updateB1);
+app.put(`/update_2/:id`, updateB2);
 
 app.post(`/getMyPosts`, getMyPosts);
+app.delete(`/deletePost/:id`, deletePost);
 
 const port = process.env.PORT || 4004;
 app.listen(port, () => console.log(`Welcome to PORT ${port}`));
