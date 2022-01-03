@@ -7,13 +7,17 @@ function registerNewUser(event) {
     let username = document.querySelector('#signup-username-field');
     let password = document.querySelector('#signup-password-field');
     let confirmPass = document.querySelector('#confirm-password-field');
-
-    if (email.value < 1 || username.value < 1 ||
-        password.value < 1 || confirmPass < 1) {
-        alert('All fields required to register');
+    /*
+        if (email.value < 1 || username.value < 1 ||
+            password.value < 1 || confirmPass < 1) {
+            alert('All fields required to register');
+            return;
+        }
+    */
+    if (password.value.length < 6) {
+        alert('Password must be at least 5 characters long');
         return;
     }
-
     if (password.value != confirmPass.value) {
         alert('Passwords must match!');
         return;
@@ -67,9 +71,9 @@ else if (username === user['username']) {
 })*/
 
 function register(body) {
-    axios.post(`/register`, body).then(response => {
+    axios.post(`http://localhost:4004/register`, body).then(response => {
         alert('Successfully registered! Please login :)');
-        window.location.href = "/login.html";
+        window.location.href = "login.html";
     }).catch(error => {
         console.log(error);
         alert('Uh oh. Your request did not work');

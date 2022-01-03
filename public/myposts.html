@@ -16,15 +16,13 @@
 	<header>
 		<img id="logo-img" src="https://avatars.dicebear.com/api/personas/peteroh.svg" alt="Italian Trulli">
 		<h1 id="logo">POLLS</h1>
-		<a href="login.html">
-			<h3 id="header-link">Log Out</h3>
-		</a>
+		<h3 id="header-link">Log Out</h3>
 	</header>
 
 	<main>
 		<section class="group-user-items">
 			<div id="user-items">
-				<h3 id="display-username">Username</h3>
+				<h3 id="display-username"></h3>
 				<a href="comPosts.html"><button id="switch-view">View all posts</button></a>
 			</div>
 			<p id="post-section"><button class="post-question">POST A
@@ -41,17 +39,17 @@
 				<div id="modal-body">
 					<form id="question-form">
 						<p>Header of Post: </p>
-						<input id="option-input" type="text" />
-						<p>What would you like to ask the community</p>
-						<textarea id="option-input" rows='5'></textarea>
+						<input class="modal-header" id="option-input" type="text" />
+						<p>What would you like to ask the community?</p>
+						<textarea class="modal-body" id="option-input" rows='5'></textarea>
 						<div id="two-options">
 							<div id="box1">
 								<p>Button Option 1</p>
-								<input type="text" id="option-input" />
+								<input type="text" class="input1" id="option-input" />
 							</div>
 							<div id="box2">
 								<p>Button Option 1</p>
-								<input type="text" id="option-input" />
+								<input type="text" class="input2" id="option-input" />
 							</div>
 						</div>
 						<button class="submit-question">Post Question!</button>
@@ -62,18 +60,14 @@
 
 		<section class="post-body">
 			<div class="list-posts">
-				<div id="a-post">Some text</div>
-				<div id="a-post">Some text</div>
-				<div id="a-post">Some text</div>
-				<div id="a-post">Some text</div>
-				<div id="a-post">Some text</div>
-				<div id="a-post">Some text</div>
+				<div id="a-post" a></div>
 			</div>
 		</section>
 	</main>
 
 	<footer></footer>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="myposts.js"></script>
 	<script src="modal.js"></script>
 </body>
 

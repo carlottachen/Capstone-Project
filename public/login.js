@@ -1,6 +1,7 @@
 const loginSubmit = document.querySelector('#login-form');
 
 function loginUser(event) {
+    event.preventDefault();
     let username = document.querySelector('#username-field');
     let password = document.querySelector('#password-field');
 
@@ -10,7 +11,7 @@ function loginUser(event) {
     }
 
     let loginObj = {
-        username: username.value,
+        username: username.value.toLowerCase(),
         password: password.value
     }
 
@@ -21,11 +22,17 @@ function loginUser(event) {
 }
 
 function login(body) {
-    axios.post(`/login`, body).then(response => {
-        alert('Signed in!');
+    axios.post(`http://localhost:4004/login`, body).then(response => {
+        //console.log(response.data.length);
+        console.log('Logging in', response.data[0].username);
+        //window.localStorage.setItem('user', JSON.stringify(response.data));
+        window.localStorage.setItem('userID', response.data[0].user_id);
+        window.localStorage.setItem('username', response.data[0].username);
+        window.location.href = "comPosts.html";
+        //redirectLogin(loggedIn);
     }).catch(error => {
         console.log(error);
-        alert('Uh oh. Your request did not work.');
+        alert('Uh oh. Username or Password match not found.');
     })
 }
 
