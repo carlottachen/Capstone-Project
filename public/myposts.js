@@ -63,10 +63,10 @@ function postMyCard(body) {
         </p>
         <table>
         <tr>
-        <td>${body.button_1}:   </td>
-        <td>${body.button_2}:   </td>
-        <td>${body.button_1}:   </td>
-        <td>${body.button_2}:   </td>
+        <td>${body.button_1}   </td>
+        <td>${body.button_2}   </td>
+        <td>${body.button_1}   </td>
+        <td>${body.button_2}   </td>
         </tr >
         <tr>
         <td>${body.vote_count_1} votes</td>
