@@ -29,7 +29,7 @@ module.exports = {
         ON posts.user_id = users.user_id
         JOIN results
         ON posts.post_id = results.post_id
-        ORDER BY post_id DESC`)
+        ORDER BY CURRENT_DATE DESC`)
             .then(dbRes => response.status(200).send(dbRes[0]))
             .catch(error => console.log(error));
     },

@@ -36,7 +36,7 @@ function postData(postData) {
     for (let i = 0; i < postData.length; i++) {
         //create a new post for each item in database
         postCard(postData[i]);
-        console.log(postData[i]);
+        //console.log(postData[i]);
     }
 }
 
@@ -51,14 +51,26 @@ function postCard(body) {
     userID = Number(userID);
     //console.log(userID, post_id);
 
+    let v1 = parseInt(`${body.vote_count_1}`);
+    let v2 = parseInt(`${body.vote_count_2}`);
+
+    let percent_1 = Math.round((v1 / (v1 + v2)) * 100);
+    let percent_2 = Math.round((v2 / (v1 + v2)) * 100);
+
     axios.get(`http://localhost:4004/voteCasted`)
         .then(response => {
+            //console.log(response.data);
+            //console.log(post_id, userID);
             for (let i = 0; i < response.data.length; i++) {
-                console.log(post_id, userID);
-                console.log(response.data[i]);
+                //console.log(post_id, userID);
+                //console.log(response.data[i]);
+                // console.log(post_id === response.data[i].post_id);
+                // console.log(userID === response.data[i].user_id);
+                // console.log(response.data[i].disable_vote === true);
                 if (post_id === response.data[i].post_id &&
-                    userID == response.data[i].user_id &&
+                    userID === response.data[i].user_id &&
                     response.data[i].disable_vote === true) {
+                    console.log('test');
                     newPost.innerHTML = `<div id="a-post">
                     <h2>${body.post_title}</h2>
                     <p>${body.post_content}<br><br>
@@ -67,12 +79,12 @@ function postCard(body) {
                     <section>
                             <table>
                             <tr>
-                            <td>${body.button_1}:   </td>
-                            <td>${body.button_2}:   </td>
+                            <td>${body.button_1}   </td>
+                            <td>${body.button_2}   </td>
                             </tr >
                             <tr>
-                            <td>${body.vote_count_1} votes</td>
-                            <td>${body.vote_count_2} votes</td>
+                            <td>${percent_1} %</td>
+                            <td>${percent_2} %</td>
                             </tr>
                             </table >
                     </section>
@@ -116,7 +128,7 @@ function updateOption1(id) {
             console.log(error);
             alert('Uh oh. Unable to update option 1');
         })
-    disableButton(id);
+    addToTracker(id);
 }
 
 function updateOption2(id) {
@@ -129,10 +141,10 @@ function updateOption2(id) {
             console.log(error);
             alert('Uh oh. Unable to update option 2');
         })
-    disableButton(id);
+    addToTracker(id);
 }
 
-function disableButton(id) {
+function addToTracker(id) {
     let body = { userID: localStorage["userID"] };
     axios.post(`http://localhost:4004/disable_this/${id}`, body)
         .then(console.log('added to tracker'))
