@@ -11,7 +11,7 @@ window.addEventListener("load", function () {
 })
 
 function displayUser() {
-    document.getElementById("display-username").innerHTML = 'Hi, ' + localStorage["username"];
+    document.getElementById("display-username").innerHTML = localStorage["username"];
 }
 displayUser();
 

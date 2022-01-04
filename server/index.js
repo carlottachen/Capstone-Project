@@ -20,7 +20,9 @@ const {
 const {
     getAllPosts,
     updateB1,
-    updateB2
+    updateB2,
+    voteCasted,
+    disableThis
 } = require('./controller/comPostsCtrl.js');
 
 const {
@@ -48,6 +50,8 @@ app.post(`/postResult`, postResult);
 app.get(`/getAllPosts`, getAllPosts);
 app.put(`/update_1/:id`, updateB1);
 app.put(`/update_2/:id`, updateB2);
+app.get(`/voteCasted`, voteCasted);
+app.post(`/disable_this/:post_id`, disableThis);
 
 app.post(`/getMyPosts`, getMyPosts);
 app.delete(`/deletePost/:id`, deletePost);

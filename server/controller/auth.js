@@ -55,18 +55,24 @@ module.exports = {
                     INSERT INTO users(user_email, username, user_password)
                     VALUES('carlotta@gmail.com', 'carlottachen', 'password1'),
                     ('cchen@gmail.com', 'cchen123', 'password2'),
-                    ('hello@yahoo.com', 'brownie', 'test');
+                    ('hello@yahoo.com', 'brownie', 'test'),
+                    ('itsmilo@hotmail.com', 'milo', 'bear');
 
                     INSERT INTO posts(user_id, post_title, post_content, button_1, button_2, date_posted)
                     VALUES(1, 'Which fast food is better', 'I like Taco Bell but my boyfriend wants McDonalds, which fast food is healthier? We will go eat there.', 'Taco Bell', 'McDonalds', CURRENT_DATE),
-                    (2, 'AITA for yelling at my boyfriend that Im not his friends personal cook?', 'I F31 have been with my boyfriend M32 for 2 years. They always expect me to cooke, so I told them to order takeout because I'm not their cook.', 'NTA', 'YTA', CURRENT_DATE);
+                    (2, 'AITA for yelling at my boyfriend that Im not his friends personal cook?', 'I F31 have been with my boyfriend M32 for 2 years. They always expect me to cooke, so I told them to order takeout because Im not their cook.', 'NTA', 'YTA', CURRENT_DATE),
+                    (2, 'Should I eat out?', 'I spent a lot of money this month but I dont know how to cook well.  What should I do?', 'Eat out', 'Learn to cook', '2021-12-25'),
+                    (1, 'Do you like DevMountain?', 'Should I try this bootcamp?', 'YES', 'no...', '2021-12-15');
 
                     INSERT INTO results(post_id, vote_count_1, vote_count_2)
                     VALUES(1, 6, 4),
-                    (2, 0, 0);
+                    (2, 0, 0),
+                    (3, 0, 0),
+                    (4, 0, 0);
 
                     INSERT INTO tracker(user_id, post_id, disable_vote)
-                    VALUES(1, 1, TRUE);
+                    VALUES(1, 1, TRUE),
+                    (1, 3, TRUE);
         `).then(() => {
             console.log('DB SEEDED!!');
             response.sendStatus(200);

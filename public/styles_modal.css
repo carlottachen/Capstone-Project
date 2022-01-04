@@ -9,10 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: loader 1s ease infinite;
 }
 
 .loader.hidden{
-    animation: fadeOut .5s;
+    animation: fadeOut 2s;
     animation-fill-mode: forwards;
 }
 
