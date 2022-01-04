@@ -45,6 +45,12 @@ function postMyCard(body) {
 
     let percent_1 = Math.round((v1 / (v1 + v2)) * 100);
     let percent_2 = Math.round((v2 / (v1 + v2)) * 100);
+    if (isNaN(percent_1)) {
+        percent_1 = 0;
+    }
+    if (isNaN(percent_2)) {
+        percent_2 = 0;
+    }
     newPost.innerHTML =
         `<div id="a-post">
         <h2>

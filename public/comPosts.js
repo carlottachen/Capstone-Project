@@ -51,11 +51,17 @@ function postCard(body) {
     userID = Number(userID);
     //console.log(userID, post_id);
 
-    let v1 = parseInt(`${body.vote_count_1}`);
-    let v2 = parseInt(`${body.vote_count_2}`);
+    let v1 = Number(`${body.vote_count_1}`);
+    let v2 = Number(`${body.vote_count_2}`);
 
     let percent_1 = Math.round((v1 / (v1 + v2)) * 100);
     let percent_2 = Math.round((v2 / (v1 + v2)) * 100);
+    if (isNaN(percent_1)) {
+        percent_1 = 0;
+    }
+    if (isNaN(percent_2)) {
+        percent_2 = 0;
+    }
 
     axios.get(`http://localhost:4004/voteCasted`)
         .then(response => {
