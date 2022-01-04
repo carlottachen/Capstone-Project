@@ -28,6 +28,7 @@ module.exports = {
     deletePost: (request, response) => {
         const { id } = request.params;
         sequelize.query(`
+        DELETE FROM tracker WHERE post_id = ${id};
         DELETE FROM results WHERE post_id = ${id};
         DELETE FROM posts WHERE post_id = ${id};
         `)

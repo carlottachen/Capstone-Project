@@ -36,6 +36,7 @@ function postData(postData) {
     for (let i = 0; i < postData.length; i++) {
         //create a new post for each item in database
         postCard(postData[i]);
+        console.log(postData[i]);
     }
 }
 
@@ -46,13 +47,15 @@ function postCard(body) {
     newPost.classList.add('a-post');
 
     let { post_id } = body;
-    const userID = localStorage.getItem("userID");
+    let userID = localStorage.getItem("userID");
+    userID = Number(userID);
     //console.log(userID, post_id);
 
     axios.get(`http://localhost:4004/voteCasted`)
         .then(response => {
             for (let i = 0; i < response.data.length; i++) {
-                console.log(response.data.length);
+                console.log(post_id, userID);
+                console.log(response.data[i]);
                 if (post_id === response.data[i].post_id &&
                     userID == response.data[i].user_id &&
                     response.data[i].disable_vote === true) {
@@ -74,7 +77,6 @@ function postCard(body) {
                             </table >
                     </section>
                     </div>`;
-                    listPosts.appendChild(newPost);
                 }
                 else {
                     newPost.innerHTML = `<div id="a-post">
@@ -84,18 +86,18 @@ function postCard(body) {
                     </h4></p>
                     <section>
                     <div class="button_wrap">
-                    <button class="select_button" id="${body.post_id}_a" 
+                    <button class="select_button" id="${post_id}" 
                     onclick="updateOption1(${body.post_id})" 
                     type="submit">${body.button_1}</button>
                 
-                    <button class="select_button" id="${body.post_id}_b" 
+                    <button class="select_button" id="${post_id}" 
                     onclick="updateOption2(${body.post_id})" 
                     type="submit">${body.button_2}</button>
                     </div>
                     </section>
                     </div>`;
-                    listPosts.appendChild(newPost);
                 }
+                listPosts.appendChild(newPost);
             }
         })
         .catch(error => {
