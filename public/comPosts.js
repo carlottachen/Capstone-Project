@@ -64,9 +64,9 @@ function postCard(body) {
             for (let i = 0; i < response.data.length; i++) {
                 //console.log(post_id, userID);
                 //console.log(response.data[i]);
-                // console.log(post_id === response.data[i].post_id);
-                // console.log(userID === response.data[i].user_id);
-                // console.log(response.data[i].disable_vote === true);
+                // console.log('a', post_id === response.data[i].post_id);
+                // console.log('b', userID === response.data[i].user_id);
+                // console.log('c', response.data[i].disable_vote === true);
                 if (post_id === response.data[i].post_id &&
                     userID === response.data[i].user_id &&
                     response.data[i].disable_vote === true) {
@@ -89,6 +89,8 @@ function postCard(body) {
                             </table >
                     </section>
                     </div>`;
+                    listPosts.appendChild(newPost);
+                    return;
                 }
                 else {
                     newPost.innerHTML = `<div id="a-post">
@@ -108,8 +110,8 @@ function postCard(body) {
                     </div>
                     </section>
                     </div>`;
+                    listPosts.appendChild(newPost);
                 }
-                listPosts.appendChild(newPost);
             }
         })
         .catch(error => {
