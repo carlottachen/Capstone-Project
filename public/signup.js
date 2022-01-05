@@ -48,11 +48,8 @@ function checkExists(body) {
                 alert('This username is taken');
                 return;
             }
-            else {
-                register(body);
-                return;
-            }
         }
+        register(body);
     }).catch(error => {
         console.log(error);
         alert('Uh oh. Your request did not work');

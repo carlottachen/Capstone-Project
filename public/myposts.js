@@ -54,7 +54,7 @@ function postMyCard(body) {
     newPost.innerHTML =
         `<div id="a-post">
         <h2>
-            <img src="trash-bin.png"
+            <img src="./images/trash-bin.png"
             onclick="deleteThisPost(${body.post_id})" 
             alt="delete post" id="delete-this" style="width:3vw;height:3vw">
             ${body.post_title}             

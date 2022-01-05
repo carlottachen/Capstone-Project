@@ -71,6 +71,34 @@
     justify-content: space-around
 }
 
+#search-section{
+    margin-bottom: 2%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#search-input{
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: #9e788f;
+    padding: 10px;
+    background-color: #9e788f5d;
+    width: 50%;
+}
+
+#search-button{
+    height: 3vw;
+    width: 3vw;
+    margin-left: 1vw;
+}
+
+#search-button:hover{
+    animation: shake 0.6s;
+    animation-iteration-count: infinite;
+}
+
 .list-posts{
     border-style: solid;
     border-width: 1px 0 1px;

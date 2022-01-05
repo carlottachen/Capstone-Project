@@ -40,8 +40,6 @@ function postData(postData) {
     }
 }
 
-
-
 function postCard(body) {
     const newPost = document.createElement('div');
     newPost.classList.add('a-post');
@@ -87,12 +85,12 @@ function postCard(body) {
                             <tr>
                             <td>${body.button_1}   </td>
                             <td>${body.button_2}   </td>
-                            </tr >
+                            </tr>
                             <tr>
                             <td>${percent_1} %</td>
                             <td>${percent_2} %</td>
                             </tr>
-                            </table >
+                            </table>
                     </section>
                     </div>`;
                     listPosts.appendChild(newPost);
