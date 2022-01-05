@@ -28,7 +28,7 @@ function login(body) {
         //window.localStorage.setItem('user', JSON.stringify(response.data));
         window.localStorage.setItem('userID', response.data[0].user_id);
         window.localStorage.setItem('username', response.data[0].username);
-        window.location.href = "comPosts.html";
+        window.location.href = "home.html";
         //redirectLogin(loggedIn);
     }).catch(error => {
         console.log(error);
