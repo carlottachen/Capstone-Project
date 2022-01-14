@@ -22,18 +22,20 @@ function loginUser(event) {
 }
 
 function login(body) {
-    axios.post(`http://localhost:4004/login`, body).then(response => {
-        //console.log(response.data.length);
-        //console.log('Logging in', response.data[0].username);
-        //window.localStorage.setItem('user', JSON.stringify(response.data));
-        window.localStorage.setItem('userID', response.data[0].user_id);
-        window.localStorage.setItem('username', response.data[0].username);
-        window.location.href = "home.html";
-        //redirectLogin(loggedIn);
-    }).catch(error => {
-        console.log(error);
-        alert('Uh oh. Username or Password match not found.');
-    })
+    // axios.post(`http://localhost:4004/login`, body)
+    axios.post(`/login`, body)
+        .then(response => {
+            //console.log(response.data.length);
+            //console.log('Logging in', response.data[0].username);
+            //window.localStorage.setItem('user', JSON.stringify(response.data));
+            window.localStorage.setItem('userID', response.data[0].user_id);
+            window.localStorage.setItem('username', response.data[0].username);
+            window.location.href = "home.html";
+            //redirectLogin(loggedIn);
+        }).catch(error => {
+            console.log(error);
+            alert('Uh oh. Username or Password match not found.');
+        })
 }
 
 loginSubmit.addEventListener('submit', loginUser);

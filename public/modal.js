@@ -62,26 +62,30 @@ function fillOutForm(event) {
 }
 
 function submitQuestion(body) {
-    axios.post(`http://localhost:4004/postQuestion`, body).then(response => {
-        let postObj = { post_id_data: response.data[0].post_id };
-        console.log('this', postObj);
-        attachResult(postObj);
-        //postData(response.data);
-        location.reload();
-    }).catch(error => {
-        console.log(error);
-        alert('Uh oh. Your post could not be posted');
-    })
+    // axios.post(`http://localhost:4004/postQuestion`, body)
+    axios.post(`/postQuestion`, body)
+        .then(response => {
+            let postObj = { post_id_data: response.data[0].post_id };
+            console.log('this', postObj);
+            attachResult(postObj);
+            //postData(response.data);
+            location.reload();
+        }).catch(error => {
+            console.log(error);
+            alert('Uh oh. Your post could not be posted');
+        })
     modal.style.display = "none";
 }
 
 function attachResult(body) {
-    axios.post(`http://localhost:4004/postResult`, body).then(
-        console.log('Results table updated')
-    ).catch(error => {
-        console.log(error);
-        alert('Uh oh. Something went wrong');
-    })
+    // axios.post(`http://localhost:4004/postResult`, body)
+    axios.post(`/postResult`, body)
+        .then(
+            console.log('Results table updated')
+        ).catch(error => {
+            console.log(error);
+            alert('Uh oh. Something went wrong');
+        })
 }
 
 questionForm.addEventListener('submit', fillOutForm);

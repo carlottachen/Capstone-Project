@@ -13,7 +13,8 @@ logout.addEventListener('click', loggingOut);
 
 function getMyPosts() {
     let body = { userID: localStorage["userID"] };
-    axios.post(`http://localhost:4004/getMyPosts`, body)
+    // axios.post(`http://localhost:4004/getMyPosts`, body)
+    axios.post(`/getMyPosts`, body)
         .then(response => {
             //console.log(response.data.length);
             let postInfo = response.data;
@@ -80,7 +81,8 @@ function postMyCard(body) {
 }
 
 function deleteThisPost(id) {
-    axios.delete(`http://localhost:4004/deletePost/${id}`)
+    // axios.delete(`http://localhost:4004/deletePost/${id}`)
+    axios.delete(`/deletePost/${id}`)
         .then(response => {
             alert('Post deleted');
             location.reload();

@@ -38,22 +38,24 @@ function registerNewUser(event) {
 
 function checkExists(body) {
     const { email, username, password } = body;
-    axios.get(`http://localhost:4004/searchUsers`).then(response => {
-        for (let i = 0; i < response.data.length; i++) {
-            if (email === response.data[i].user_email) {
-                alert('There is an account registered to this email');
-                return;
+    // axios.get(`http://localhost:4004/searchUsers`)
+    axios.get(`/searchUsers`)
+        .then(response => {
+            for (let i = 0; i < response.data.length; i++) {
+                if (email === response.data[i].user_email) {
+                    alert('There is an account registered to this email');
+                    return;
+                }
+                else if (username === response.data[i].username) {
+                    alert('This username is taken');
+                    return;
+                }
             }
-            else if (username === response.data[i].username) {
-                alert('This username is taken');
-                return;
-            }
-        }
-        register(body);
-    }).catch(error => {
-        console.log(error);
-        alert('Uh oh. Your request did not work');
-    })
+            register(body);
+        }).catch(error => {
+            console.log(error);
+            alert('Uh oh. Your request did not work');
+        })
 }
 
 /*response.data.forEach(user => {
@@ -68,13 +70,15 @@ else if (username === user['username']) {
 })*/
 
 function register(body) {
-    axios.post(`http://localhost:4004/register`, body).then(response => {
-        alert('Successfully registered! Please login :)');
-        window.location.href = "login.html";
-    }).catch(error => {
-        console.log(error);
-        alert('Uh oh. Your request did not work');
-    })
+    // axios.post(`http://localhost:4004/register`, body)
+    axios.post(`/register`, body)
+        .then(response => {
+            alert('Successfully registered! Please login :)');
+            window.location.href = "login.html";
+        }).catch(error => {
+            console.log(error);
+            alert('Uh oh. Your request did not work');
+        })
 }
 
 signupForm.addEventListener('submit', registerNewUser);

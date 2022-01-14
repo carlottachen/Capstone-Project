@@ -18,7 +18,8 @@ Display posts on Community posts page
 */
 
 function getAllPosts() {
-    axios.get(`http://localhost:4004/getAllPosts`)
+    //axios.get(`http://localhost:4004/getAllPosts`)
+    axios.get(`/getAllPosts`)
         //.then(function ({ data: postData }) { postData(postData) })
         .then(response => {
             //console.log(response.data.length);
@@ -61,7 +62,8 @@ function postCard(body) {
         percent_2 = 0;
     }
 
-    axios.get(`http://localhost:4004/voteCasted`)
+    //axios.get(`http://localhost:4004/voteCasted`)
+    axios.get(`/voteCasted`)
         .then(response => {
             //console.log(response.data);
             //console.log(post_id, userID);
@@ -125,7 +127,8 @@ function postCard(body) {
 }
 
 function updateOption1(id) {
-    axios.put(`http://localhost:4004/update_1/${id}`)
+    // axios.put(`http://localhost:4004/update_1/${id}`)
+    axios.put(`/update_1/${id}`)
         .then(response => {
             console.log('updated 1');
             getAllPosts();
@@ -138,7 +141,8 @@ function updateOption1(id) {
 }
 
 function updateOption2(id) {
-    axios.put(`http://localhost:4004/update_2/${id}`)
+    // axios.put(`http://localhost:4004/update_2/${id}`)
+    axios.put(`/update_2/${id}`)
         .then(response => {
             console.log('updated 2');
             getAllPosts();
@@ -152,7 +156,8 @@ function updateOption2(id) {
 
 function addToTracker(id) {
     let body = { userID: localStorage["userID"] };
-    axios.post(`http://localhost:4004/disable_this/${id}`, body)
+    // axios.post(`http://localhost:4004/disable_this/${id}`, body)
+    axios.post(`/disable_this/${id}`, body)
         .then(console.log('added to tracker'))
         .catch(error => {
             console.log(error);
